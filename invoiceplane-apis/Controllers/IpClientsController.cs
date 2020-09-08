@@ -85,6 +85,15 @@ namespace invoiceplane_apis
             return CreatedAtAction("GetIpClients", new { id = ipClients.ClientId }, ipClients);
         }
 
+        // POST: api/IpClients
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost("search")]
+        public async Task<ActionResult<IpClients>> SearchIpClients(IpClients ipClients)
+        {
+            return await _context.IpClients.FirstOrDefaultAsync(ipCli => ipCli.ClientName.ToLower().Contains(ipClients.ClientName.ToLower()) && (ipCli.ClientName.ToLower().Contains(ipClients.ClientSurname.ToLower()) || ipCli.ClientSurname.ToLower().Contains(ipClients.ClientSurname.ToLower())));
+        }
+
         // DELETE: api/IpClients/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<IpClients>> DeleteIpClients(int id)
