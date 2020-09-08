@@ -6,4 +6,4 @@ Just plug the app on your [InvoicePlane](https://github.com/InvoicePlane/Invoice
 
 # What about docker ?
 
-A docker image is being built [here](https://hub.docker.com/r/jeremyvoisin/invoiceplane-api)
+A docker image is being built here : [jeremyvoisin/invoiceplane-api](https://hub.docker.com/r/jeremyvoisin/invoiceplane-api)
